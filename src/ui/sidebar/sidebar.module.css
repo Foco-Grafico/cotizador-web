@@ -1,0 +1,29 @@
+.sidebar {
+    width: 24rem;
+    border-right: 1px solid #e0e0e0;
+    animation: collapsed 0.4s ease-in-out forwards 0.8s;
+}
+
+
+.sidebar:hover {
+    animation: expanded 0.4s ease-in-out forwards;
+}
+
+
+@keyframes expanded {
+    0% {
+        width: 4rem;
+    }
+    100% {
+        width: 24rem;
+    }
+}
+
+@keyframes collapsed {
+    0% {
+        width: 24rem;
+    }
+    100% {
+        width: 4rem;
+    }
+}

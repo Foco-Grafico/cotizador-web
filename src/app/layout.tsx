@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { SideBar } from '@/ui/sidebar/sidebar.component'
-
-const inter = Inter({ subsets: ['latin'] })
+import { montserrat } from '@/assets/fonts'
 
 export const metadata: Metadata = {
   title: 'Cotizador Instantaneo',
@@ -18,7 +16,7 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='es'>
-      <body className={`${inter.className} flex`}>
+      <body className={`${montserrat.className} flex`}>
         <SideBar />
         {children}
       </body>

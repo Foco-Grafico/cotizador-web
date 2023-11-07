@@ -1,3 +1,4 @@
+import BatchInfo from '@/ui/batchInfo/batchInfo.component'
 
 export default function Home () {
   return (
@@ -6,6 +7,7 @@ export default function Home () {
         <header>
           a
         </header>
+        <BatchInfo />
       </main>
     </>
   )

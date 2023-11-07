@@ -1,16 +1,10 @@
 .sidebar {
     width: 4rem;
     border-right: 1px solid #e0e0e0;
-    transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out 0.4s;
 
     .elhidden {
-        opacity: 0;
         height: 0%;
-        transition: opacity 0.4s ease-in-out, height 0.4s ease-in-out;
-    }
-
-    .litext {
-        display: none;
     }
 }
 
@@ -18,11 +12,6 @@
     width: 24rem;
 
     .elhidden {
-        opacity: 1;
-        height: auto;
-    }
-
-    .litext {
         display: block;
     }
 }

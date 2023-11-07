@@ -3,9 +3,9 @@
     color: #c1a95e;
     border-radius: 0.33rem;
     width: auto;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    margin-bottom: 10px;
+    padding-left: 0.05rem;
+    padding-right: 10rem;
+    margin-bottom: 5px;;
 }
 
 .Estado {
@@ -35,8 +35,8 @@
 }
 
 .borderoptions {
-    border: 1.5px solid #c1a95e;
-    border-radius: 0.33rem;
+    border: 3px solid #c1a95e;
+    border-radius: 0.60rem;
     padding: 1;
     margin-bottom: 0.5rem;
     border-color: #faeed9;
@@ -48,4 +48,5 @@
     padding-right: 1rem;
     flex-wrap: wrap;
     display: flex;
+    width: 100%;
 }

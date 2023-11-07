@@ -11,6 +11,7 @@ export const Filters = () => {
       <button className={styles.filterbutton} onClick={handleToggle}>
         Filtrar
       </button>
+      <div className='h-[0.05rem] w-full bg-[#7f7f7f8a] m-[0.50rem]' />
       {isActive && (
         <section className={styles.borderoptions}>
           <select className={styles.Estado}>

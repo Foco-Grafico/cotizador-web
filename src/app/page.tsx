@@ -1,3 +1,4 @@
+import { Filters } from '@/ui/filter/filter.component'
 
 export default function Home () {
   return (
@@ -6,6 +7,7 @@ export default function Home () {
         <header>
           a
         </header>
+        <Filters />
       </main>
     </>
   )

@@ -1,0 +1,51 @@
+.filterbutton {
+    background-color: rgba(229, 229, 229, 0.411) ;
+    color: #c1a95e;
+    border-radius: 0.33rem;
+    width: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 10px;
+}
+
+.Estado {
+    border: 1px solid #e6e6e6;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 0.33rem;
+
+}
+.Precio {
+    border: 1px solid #e6e6e6;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 0.33rem;
+}
+.Ubicacion{
+    border: 1px solid #e6e6e6;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 0.33rem;
+}
+.M2 {
+    border: 1px solid #e6e6e6;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 0.33rem;
+}
+
+.borderoptions {
+    border: 1.5px solid #c1a95e;
+    border-radius: 0.33rem;
+    padding: 1;
+    margin-bottom: 0.5rem;
+    border-color: #faeed9;
+    width: 100%;
+    gap: 1rem;
+    padding-top: 0.33rem;
+    padding-bottom: 0.33rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    flex-wrap: wrap;
+    display: flex;
+}

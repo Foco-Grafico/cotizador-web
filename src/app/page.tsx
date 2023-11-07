@@ -7,7 +7,7 @@ export default function Home () {
         <header>
           a
         </header>
-        <BatchInfo />
+        <BatchInfo index={1} m2={199} currency='MXN' price={1900000} status='Disponible' location='Húmedo' image='' />
       </main>
     </>
   )

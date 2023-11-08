@@ -1,6 +1,7 @@
 'use client'
-
+// import styles from '@ui/batchInfo/batchInfo.module.css'
 import { useState } from 'react'
+import Modal from './components/modal'
 
 interface Props {
   status: string
@@ -19,6 +20,12 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
 
   const handleModal = () => {
     setActive(prev => !prev)
+  }
+
+  const closeModal = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (e.target === e.currentTarget) {
+      setActive(false)
+    }
   }
 
   return (
@@ -91,13 +98,11 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
         </section>
       </article>
       {active && (
-        <div className='modal'>
-          <div className='modal-content'>
-            <span className='close' onClick={handleModal}>&times;</span>
-            <p>Some text in the Modal..</p>
-          </div>
+        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md' onClick={closeModal}>
+          <Modal />
         </div>
       )}
+
     </main>
   )
 }

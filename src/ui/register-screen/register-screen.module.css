@@ -8,3 +8,13 @@
    width: 100vw;
    height: 100vh;
 }
+
+
+.input{
+   border: 2px solid black;
+   border-color: #e8e0ca;
+   border-radius:0.30rem;
+   width: 29rem;
+   box-shadow: darkgray 0.5rem 0.5rem 0.5rem;
+   padding-left: 0.5rem;
+}

@@ -43,7 +43,7 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
         <section className='flex flex-col gap-10 items-center justify-center w-full'>
           <div className='flex flex-wrap gap-5'>
             <div className=''>
-              <div className='bg-[#e5e5e5]  w-auto rounded-lg px-2 font-black'>
+              <div className='bg-[#e5e5e5]  w-36 rounded-lg px-2 font-black'>
                 <span>STATUS</span>
               </div>
               <div className=''>
@@ -51,7 +51,7 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
               </div>
             </div>
             <div className=''>
-              <div className='bg-[#e5e5e5]  w-auto rounded-lg px-2 font-black'>
+              <div className='bg-[#e5e5e5]  w-36 rounded-lg px-2 font-black'>
                 <span>M2</span>
               </div>
               <div className=''>
@@ -59,7 +59,7 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
               </div>
             </div>
             <div className=''>
-              <div className='bg-[#e5e5e5]  w-auto rounded-lg px-2 font-black'>
+              <div className='bg-[#e5e5e5]  w-36 rounded-lg px-2 font-black'>
                 <span>MONEDA</span>
               </div>
               <div className=''>

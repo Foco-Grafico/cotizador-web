@@ -1,4 +1,4 @@
-import BatchInfo from '@/ui/batchInfo/batchInfo.component'
+import BatchInfo from '@/ui/batch/batch.component'
 
 export default function Home () {
   return (

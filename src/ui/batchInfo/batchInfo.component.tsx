@@ -1,4 +1,7 @@
 'use client'
+
+import { useState } from 'react'
+
 interface Props {
   status: string
   m2: number
@@ -12,6 +15,12 @@ interface Props {
 }
 
 export default function BatchInfo ({ status, m2, currency, location, price, index, image, onClickDownload, onClickReserve }: Props) {
+  const [active, setActive] = useState(false)
+
+  const handleModal = () => {
+    setActive(prev => !prev)
+  }
+
   return (
     <main className='p-2'>
       <article className='p-4 flex flex-row border-[#cea550] border rounded-xl gap-4'>
@@ -19,7 +28,9 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
           <div className='absolute top-0 left-0 bg-[#cda052] w-10 rounded-tl-lg px-2 text-white'>
             {index}
           </div>
-          <img src={image} alt={location} width={650} height={250} />
+          <button onClick={handleModal}>
+            <img src={image} alt={location} width={650} height={250} />
+          </button>
           <div className='border-r-[#cea550] border h-3/4 ' />
         </section>
         <section className='flex flex-col gap-10 items-center justify-center w-full'>
@@ -79,6 +90,14 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
           </div>
         </section>
       </article>
+      {active && (
+        <div className='modal'>
+          <div className='modal-content'>
+            <span className='close' onClick={handleModal}>&times;</span>
+            <p>Some text in the Modal..</p>
+          </div>
+        </div>
+      )}
     </main>
   )
 }

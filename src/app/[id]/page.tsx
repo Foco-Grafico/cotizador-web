@@ -1,10 +1,9 @@
-
-export default function Home () {
+export default function BatchPage ({ params }: { params: { id: string } }) {
   return (
     <>
       <main className='h-screen w-full'>
         <header>
-          a
+          {params.id}
         </header>
       </main>
     </>

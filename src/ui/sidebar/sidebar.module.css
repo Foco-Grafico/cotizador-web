@@ -1,0 +1,93 @@
+.sidebar {
+    width: 4rem;
+    border-right: 1px solid #cca249;
+    transition: width 0.4s ease-in-out;
+}
+
+.sectitle {
+    height: 0rem;
+    overflow: hidden;
+    transition: height 0.4s ease-in-out;
+}
+
+.litext {
+    width: 0%;
+    overflow: hidden;
+    text-wrap: nowrap;
+    transition: width 0.4s ease-in-out;
+}
+
+.list {
+    list-style: none;
+    padding: 0 0.7rem;
+
+    transition: padding 0.4s ease-in-out;
+}
+
+.lielement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+    border-radius: 0.3rem;
+    color: #cca249;
+    font-weight: 500;
+    font-size: large;
+}
+
+.selected {
+    background-color: #cca34930;
+}
+
+.liImgContainer {
+    padding: 0.3rem;
+    width: auto;
+    transition: opacity 0.4s ease-in-out, width 0.4s ease-in-out;
+}
+
+.header {
+    transition: height 0.4s ease-in-out;
+}
+
+.logo {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.icon {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.sidebar:hover {
+    width: 24rem;
+
+    .sectitle {
+        height: 2.6rem;
+    }
+
+    .litext {
+        width: 100%;
+    }
+
+    .list {
+        padding: 0 1rem;
+    }
+
+    .liImgContainer {
+        opacity: 0;
+        width: 0;
+    }
+
+    .header {
+        height: 10rem;
+    }
+
+    .icon {
+        opacity: 0;
+    }
+
+    .logo {
+        opacity: 1;
+    }
+}

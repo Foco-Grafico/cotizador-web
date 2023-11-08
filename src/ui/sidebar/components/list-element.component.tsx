@@ -11,8 +11,10 @@ interface Props {
 
 export const ListElement = ({ item }: Props) => {
   return (
-    <Link href={item.path} className='flex gap-1 items-center'>
-      <img src={item.icon} alt={item.name} width={25} height={25} />
+    <Link href={item.path} className={styles.lielement}>
+      <div className={styles.liImgContainer}>
+        <img src={item.icon} alt={item.name} width={25} height={25} />
+      </div>
       <span className={styles.litext}>{item.name}</span>
     </Link>
   )

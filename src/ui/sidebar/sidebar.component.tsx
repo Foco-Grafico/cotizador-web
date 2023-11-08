@@ -4,7 +4,7 @@ import { ListElement } from '@/ui/sidebar/components/list-element.component'
 export const SideBar = () => {
   return (
     <aside className={styles.sidebar}>
-      <header className='w-full flex flex-col justify-center items-center px-6 py-6 gap-6'>
+      <header className='w-full flex flex-col justify-center items-center px-5 py-9 gap-6'>
         <img src='/logos/deluxe.png' alt='Logo de la empresa' width={2663} height={791} className={styles.logo} />
         <div className='border-b w-[50%] border-b-[#d1a45d]' />
       </header>

@@ -43,3 +43,34 @@ export const IconDeluxe = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
+
+export const IconArrowSquare = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    baseProfile='basic'
+    id='Capa_1'
+    xmlns='http://www.w3.org/2000/svg'
+    x={0}
+    y={0}
+    viewBox='0 0 14.26 14.26'
+    xmlSpace='preserve'
+    {...props}
+  >
+    <style>
+      {
+        '.st2{fill:#033a42}.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#087b35}.st4{fill:#012b31}.st5{fill-rule:evenodd;clip-rule:evenodd;fill:#055d53}.st6{fill:#ddb186}.st7{fill:#a16b36}'
+      }
+    </style>
+    <path
+      d='M12 14.26H2.26C1.01 14.26 0 13.25 0 12V2.26C0 1.01 1.01 0 2.26 0H12c1.25 0 2.26 1.01 2.26 2.26V12c0 1.25-1.01 2.26-2.26 2.26z'
+      style={{
+        fill: '#cda248'
+      }}
+    />
+    <path
+      style={{
+        fill: '#fff'
+      }}
+      d='M10.32 11.75 3.93 6.86l6.39-4.45V1.34L2.4 6.86l7.92 6.06z'
+    />
+  </svg>
+)

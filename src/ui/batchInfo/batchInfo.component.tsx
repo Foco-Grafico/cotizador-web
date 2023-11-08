@@ -1,3 +1,4 @@
+'use client'
 interface Props {
   status: string
   m2: number
@@ -6,9 +7,11 @@ interface Props {
   price: number
   index: number
   image: string
+  onClickDownload?: (index: number) => void
+  onClickReserve?: (index: number) => void
 }
 
-export default function BatchInfo ({ status, m2, currency, location, price, index, image }: Props) {
+export default function BatchInfo ({ status, m2, currency, location, price, index, image, onClickDownload, onClickReserve }: Props) {
   return (
     <main className='p-2'>
       <article className='p-4 flex flex-row border-[#cea550] border rounded-xl gap-4'>
@@ -67,10 +70,10 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
             </div>
           </div>
           <div className='flex justify-end items-end gap-4 h-10'>
-            <button className='bg-[#035a54] text-white px-2 py-1 rounded-xl hover:scale-75 transition'>
+            <button onClick={() => { onClickDownload?.(index) }} className='bg-[#035a54] text-white px-2 py-1 rounded-xl hover:scale-75 transition'>
               Descargar Cotización
             </button>
-            <button className='bg-[#035a54] text-white px-2 py-1 rounded-xl hover:scale-75 transition'>
+            <button onClick={() => { onClickReserve?.(index) }} className='bg-[#035a54] text-white px-2 py-1 rounded-xl hover:scale-75 transition'>
               Apartar en Linea
             </button>
           </div>

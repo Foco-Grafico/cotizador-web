@@ -30,55 +30,55 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
 
   return (
     <main className='p-2'>
-      <article className='p-4 flex flex-row border-[#cea550] border rounded-xl gap-4'>
-        <section className='relative rounded-lg  flex-row flex gap-10 items-center'>
-          <div className='absolute top-0 left-0 bg-[#cda052] w-10 rounded-tl-lg px-2 text-white'>
+      <article className=' flex flex-row border-[#cea550] border rounded-xl gap-4 '>
+        <section className='relative rounded-lg  flex-row flex items-center overflow-hidden'>
+          <div className='absolute top-0 left-0 bg-[#cda052] w-10 rounded-tl-lg px-2 border-[#cda052] text-white'>
             {index}
           </div>
-          <button onClick={handleModal}>
+          <button onClick={handleModal} className='overflow-hidden'>
             <img src={image} alt={location} width={650} height={250} />
           </button>
           <div className='border-r-[#cea550] border h-3/4 ' />
         </section>
-        <section className='flex flex-col gap-10 items-center justify-center w-full'>
-          <div className='flex flex-wrap gap-5'>
-            <div className=''>
-              <div className='bg-[#e5e5e5]  w-36 rounded-lg px-2 font-black'>
+        <section className='flex flex-col gap-10 items-center justify-center w-full py-4 px-10'>
+          <div className='grid grid-flow-row grid-rows-2 gap-5 w-full h-full grid-cols-3 items-center justify-center '>
+            <div className='w-full text-center'>
+              <div className='bg-[#e5e5e5] text-xl w-36 rounded-lg px-2 font-black inline-block'>
                 <span>STATUS</span>
               </div>
-              <div className=''>
+              <div className='text-xl'>
                 <span>{status} </span>
               </div>
             </div>
-            <div className=''>
-              <div className='bg-[#e5e5e5]  w-36 rounded-lg px-2 font-black'>
+            <div className='w-full text-center'>
+              <div className='bg-[#e5e5e5] text-xl  w-36 rounded-lg px-2 font-black inline-block'>
                 <span>M2</span>
               </div>
-              <div className=''>
+              <div className='text-xl'>
                 <span>{m2} </span>
               </div>
             </div>
-            <div className=''>
-              <div className='bg-[#e5e5e5]  w-36 rounded-lg px-2 font-black'>
+            <div className='w-full text-center'>
+              <div className='bg-[#e5e5e5] text-xl w-36 rounded-lg px-2 font-black inline-block'>
                 <span>MONEDA</span>
               </div>
-              <div className=''>
+              <div className='text-xl'>
                 <span>{currency} </span>
               </div>
             </div>
-            <div className=''>
-              <div className='bg-[#e5e5e5]  w-auto rounded-lg px-2 font-black'>
+            <div className='w-full text-center'>
+              <div className='bg-[#e5e5e5] text-xl w-36 rounded-lg px-2 font-black inline-block'>
                 <span>UBICACIÓN</span>
               </div>
-              <div className=''>
+              <div className='text-xl'>
                 <span>{location} </span>
               </div>
             </div>
-            <div className=''>
-              <div className='bg-[#e5e5e5]  w-auto rounded-lg px-2 font-black'>
+            <div className='w-full text-center'>
+              <div className='bg-[#e5e5e5] text-xl w-36 rounded-lg px-2 font-black inline-block'>
                 <span>PRECIO</span>
               </div>
-              <div className=''>
+              <div className='text-xl'>
                 <span>{price.toLocaleString('es-MX', {
                   style: 'currency',
                   currency
@@ -87,7 +87,7 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
               </div>
             </div>
           </div>
-          <div className='flex justify-end items-end gap-4 h-10'>
+          <div className='flex justify-end items-end gap-4 h-10 w-full'>
             <button onClick={() => { onClickDownload?.(index) }} className='bg-[#035a54] text-white px-2 py-1 rounded-xl hover:scale-75 transition'>
               Descargar Cotización
             </button>

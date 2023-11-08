@@ -1,5 +1,5 @@
 export interface Dev {
-  id: int
+  id: number
   name: string
   description: string | null
   address: string
@@ -9,6 +9,6 @@ export interface Dev {
   logo_url: string
   contact_number: string
   contact_email: string
-  status: int
+  status: number
   key: string
 }

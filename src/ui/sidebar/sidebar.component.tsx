@@ -11,6 +11,8 @@ export const SideBar = async () => {
   })
   const data = res.ok ? (await res.json()).data as Dev[] : []
 
+  console.log(data)
+
   return (
     <aside className={styles.sidebar}>
       <header className={`w-full flex flex-col items-center justify-center overflow-hidden relative h-16 ${styles.header}`}>
@@ -32,7 +34,7 @@ export const SideBar = async () => {
                 item={{
                   icon: `${API_URL}/${item.logo_url}`,
                   name: item.name,
-                  path: `/${Number(item.id).toString()}`
+                  path: `/${item.id}`
                 }}
               />
             ))}

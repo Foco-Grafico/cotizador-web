@@ -1,25 +1,46 @@
 import styles from '@/ui/sidebar/sidebar.module.css'
 import { ListElement } from '@/ui/sidebar/components/list-element.component'
+import { LogoDeluxe } from '@/assets/svgs/logos'
+import { IconDeluxe } from '@/assets/svgs/icons'
+import { API_URL, DEVS_ENDPOINTS } from '@/utils/fetch-data'
+import { Dev } from '@/types'
 
-export const SideBar = () => {
+export const SideBar = async () => {
+  const res = await fetch(DEVS_ENDPOINTS.all, {
+    cache: 'no-cache'
+  })
+  const data = res.ok ? (await res.json()).data as Dev[] : []
+
+  console.log(data)
+
   return (
     <aside className={styles.sidebar}>
-      <header className='w-full flex flex-col justify-center items-center mb-2 px-6 py-6 gap-6'>
-        <img src='/logos/deluxe.png' alt='Logo de la empresa' width={2663} height={791} className={styles.logo} />
-        <div className='border-b w-[50%] border-b-[#d1a45d]' />
+      <header className={`w-full flex flex-col items-center justify-center overflow-hidden relative h-16 ${styles.header}`}>
+        <LogoDeluxe className={`${styles.logo} absolute w-full px-3`} />
+        <IconDeluxe className={`${styles.icon} absolute w-[50%]`} />
       </header>
-      <h1 className={`${styles.elhidden} text-[#d1a45d] text-2xl ml-5`}>
-        Desarrollos
-      </h1>
-      <ul>
-        <ListElement
-          item={{
-            name: 'Deluxe Marina',
-            icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flat_tick_icon.svg/1024px-Flat_tick_icon.svg.png',
-            path: '/deluxe-marina'
-          }}
-        />
-      </ul>
+      <section className='w-full px-12 mb-3'>
+        <div className='h-1 border-t border-t-[#cca249]' />
+      </section>
+      <section>
+        <h1 className={`${styles.sectitle} text-[#a06a36] text-2xl font-semibold ml-5`}>
+          Desarrollos
+        </h1>
+        {res.ok && (
+          <ul className={styles.list}>
+            {data.map((item) => (
+              <ListElement
+                key={item.key}
+                item={{
+                  icon: `${API_URL}/${item.logo_url}`,
+                  name: item.name,
+                  path: `/${item.id}`
+                }}
+              />
+            ))}
+          </ul>
+        )}
+      </section>
     </aside>
   )
 }

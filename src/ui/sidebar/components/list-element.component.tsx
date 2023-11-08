@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import styles from '@/ui/sidebar/sidebar.module.css'
+import { usePathname } from 'next/navigation'
 
 interface Props {
   item: {
@@ -10,9 +13,13 @@ interface Props {
 }
 
 export const ListElement = ({ item }: Props) => {
+  const path = usePathname()
+
   return (
-    <Link href={item.path} className='flex gap-1'>
-      <img src={item.icon} alt={item.name} width={50} height={50} />
+    <Link href={item.path} className={`${styles.lielement} ${path === item.path ? styles.selected : ''}`}>
+      <div className={styles.liImgContainer}>
+        <img src={item.icon} alt={item.name} width={25} height={25} />
+      </div>
       <span className={styles.litext}>{item.name}</span>
     </Link>
   )

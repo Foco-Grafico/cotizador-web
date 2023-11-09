@@ -77,14 +77,6 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
           </button>
         </div>
       </section>
-      {/* {active && (
-        <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md' onClick={closeModal}>
-          <div className={`animate-slide-up flex justify-center items-center bg-white p-5 border-2 border-gray-800 w-3/4 h-3/4 ${zoom ? 'w-full h-full flex items-center justify-center scale-150' : ''}`}>
-            <span className='cursor-pointer' onClick={handleModal}>X</span>
-            <img src={imagen} alt='' width={792} height={750} onClick={handleZoom} />
-          </div>
-        </div>
-      )} */}
     </article>
   )
 }

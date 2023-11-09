@@ -6,6 +6,8 @@
     padding-left: 0.05rem;
     padding-right: 10rem;
     margin-bottom: 5px;;
+    display: flex;
+    align-items: center;
 }
 
 .Estado {
@@ -49,4 +51,15 @@
     flex-wrap: wrap;
     display: flex;
     width: 100%;
+}
+
+.icon {
+    width: 0.80rem;
+    height: 0.80rem;
+    transform: rotate(90deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.filteropen {
+    transform: rotate(0deg);
 }

@@ -32,7 +32,7 @@ export const BatchList = ({ devID }: Props) => {
           {loading && <span className='w-full flex justify-center items-center'>Loading...</span>}
           {error != null && <span className='w-full flex justify-center items-center'>{error.message}</span>}
           {!loading && batches.map((batch) => (
-            <BatchInfo imgClick={showModal} key={batch.id} index={batch.id} m2={batch.sq_m} currency={batch.currency} price={batch.price} status={batch.status.name} location={batch.location} image={`${API_URL}/${batch.assets[0].asset_url}`} imagen={`${API_URL}/${batch.assets[0].asset_url}`} />
+            <BatchInfo imgClick={showModal} key={batch.id} index={batch.id} m2={batch.sq_m} currency={batch.currency} price={batch.price} status={batch.status.name} location={batch.location} image={`${API_URL}/${batch.assets[0].asset_url}`} />
           ))}
         </div>
         <div className='flex justify-center items-center gap-3'>
@@ -42,7 +42,7 @@ export const BatchList = ({ devID }: Props) => {
         </div>
       </section>
       {toggle && (
-        <section onClick={closeModal} className={`absolute inset-0 w-screen h-screen bg-[#0000003a] grid place-content-center ${styles.modal}`}>
+        <section onClick={closeModal} className={`absolute inset-0 w-screen h-screen bg-[#0000003a] grid place-content-center backdrop-blur-md ${styles.modal}`}>
           <img src={url} alt={url} width={850} height={550} className='bg-white p-7 rounded-lg' />
         </section>
       )}

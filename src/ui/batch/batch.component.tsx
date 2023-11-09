@@ -7,30 +7,11 @@ interface Props {
   price: number
   index: number
   image: string
-  imagen: string
   onClickDownload?: (index: number) => () => void
   onClickReserve?: (index: number) => () => void
   imgClick?: (url: string) => () => void
 }
-
-export default function BatchInfo ({ status, m2, currency, location, price, index, image, imagen, imgClick, onClickDownload, onClickReserve }: Props) {
-  // const [active, setActive] = useState(false)
-  // const [zoom, setZoom] = useState(false)
-
-  // const handleModal = () => {
-  //   setActive(prev => !prev)
-  // }
-
-  // const closeModal = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-  //   if (e.target === e.currentTarget) {
-  //     setActive(false)
-  //   }
-  // }
-
-  // const handleZoom = () => {
-  //   setZoom(prev => !prev)
-  // }
-
+export default function BatchInfo ({ status, m2, currency, location, price, index, image, imgClick, onClickDownload, onClickReserve }: Props) {
   return (
     <article className='flex flex-row border-[#cea550] border rounded-xl gap-4 w-full'>
       <section className='relative rounded-lg flex-row flex items-center overflow-hidden'>

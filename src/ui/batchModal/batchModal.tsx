@@ -29,13 +29,7 @@ export default function BatchModal ({ status, m2, currency, location, price, ind
 
   return (
     <aside>
-      <div className='flex flex-col items-center justify-center w-full h-full bg-white'>
-        <IconArrowSquare className='w-4 h-4' onClick={toggleModal} />
-        <h1 className='text-2xl'>Selecciona tu lote</h1>
-        <p className='text-sm'>Selecciona el lote que más te guste</p>
-
-        <button className='w-1/2 h-12 mt-4 bg-blue-500 rounded-md text-white'>Seleccionar</button>
-      </div>
+      <IconArrowSquare className='w-4 h-4' onClick={toggleModal} />
       {open && (
         <main className='fixed inset-0 flex items-end justify-end bg-black bg-opacity-50 backdrop-blur-md' onClick={closeModal}>
           <div className='animate-slide-in-right bg-white p-5 border-2 border-gray-800 w-1/4 h-full'>

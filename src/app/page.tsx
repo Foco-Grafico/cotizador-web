@@ -1,4 +1,3 @@
-import BatchInfo from '@/ui/batch/batch.component'
 
 export default function Home () {
   return (
@@ -7,7 +6,6 @@ export default function Home () {
         <header>
           a
         </header>
-        <BatchInfo index={1} m2={199} currency='MXN' price={1900000} status='Disponible' location='Húmedo' image='/public/logos/deluxe.png' />
       </main>
     </>
   )

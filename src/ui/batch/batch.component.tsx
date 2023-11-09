@@ -1,7 +1,6 @@
 'use client'
 // import styles from '@ui/batchInfo/batchInfo.module.css'
 import { useState } from 'react'
-import Modal from './components/modal'
 
 interface Props {
   status: string
@@ -11,12 +10,14 @@ interface Props {
   price: number
   index: number
   image: string
+  imagen: string
   onClickDownload?: (index: number) => void
   onClickReserve?: (index: number) => void
 }
 
-export default function BatchInfo ({ status, m2, currency, location, price, index, image, onClickDownload, onClickReserve }: Props) {
+export default function BatchInfo ({ status, m2, currency, location, price, index, image, imagen, onClickDownload, onClickReserve }: Props) {
   const [active, setActive] = useState(false)
+  const [zoom, setZoom] = useState(false)
 
   const handleModal = () => {
     setActive(prev => !prev)
@@ -26,6 +27,10 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
     if (e.target === e.currentTarget) {
       setActive(false)
     }
+  }
+
+  const handleZoom = () => {
+    setZoom(prev => !prev)
   }
 
   return (
@@ -99,7 +104,10 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
       </article>
       {active && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md' onClick={closeModal}>
-          <Modal />
+          <div className={`animate-slide-up bg-white p-5 border-2 border-gray-800 w-3/4 h-3/4 ${zoom ? 'w-full h-full flex items-center justify-center' : ''}`}>
+            <span className='cursor-pointer' onClick={handleModal}>X</span>
+            <img src={imagen} alt='' width={792} height={750} onClick={handleZoom} />
+          </div>
         </div>
       )}
 

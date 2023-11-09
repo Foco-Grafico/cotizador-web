@@ -40,7 +40,7 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
           <div className='absolute top-0 left-0 bg-[#cda052] w-10 rounded-tl-lg px-2 border-[#cda052] text-white'>
             {index}
           </div>
-          <button onClick={handleModal} className='overflow-hidden'>
+          <button onClick={handleModal} className='overflow-hidden flex items-center justify-center  pl-2'>
             <img src={image} alt={location} width={650} height={250} />
           </button>
           <div className='border-r-[#cea550] border h-3/4 ' />
@@ -104,7 +104,7 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
       </article>
       {active && (
         <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md' onClick={closeModal}>
-          <div className={`animate-slide-up bg-white p-5 border-2 border-gray-800 w-3/4 h-3/4 ${zoom ? 'w-full h-full flex items-center justify-center' : ''}`}>
+          <div className={`animate-slide-up flex justify-center items-center bg-white p-5 border-2 border-gray-800 w-3/4 h-3/4 ${zoom ? 'w-full h-full flex items-center justify-center scale-150' : ''}`}>
             <span className='cursor-pointer' onClick={handleModal}>X</span>
             <img src={imagen} alt='' width={792} height={750} onClick={handleZoom} />
           </div>

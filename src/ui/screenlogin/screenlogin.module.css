@@ -16,5 +16,26 @@
     border: 1px solid #e4d7b7;
     border-radius: 0.30rem;
     padding-left: 0.33rem;
-    text-shadow: 5px;
+    box-shadow: darkgray 0.2rem 0.2rem 0.2rem;
+}
+
+.buttonsesion{
+    background-color: #025c53;
+    border-radius: 0.30rem;
+    color: #ffffff;
+    height: 1.5rem;
+    width: 10rem;
+}
+
+.textcreate{
+    display: flex;
+    justify-content: center;
+    font-size: 0.70rem;
+}
+
+.textpassword{
+    display: flex;
+    justify-content: center;
+    font-size: 0.70rem;
+    color: #d5bca0;
 }

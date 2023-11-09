@@ -17,6 +17,8 @@ export default function useBatches ({ devID }: Props) {
   })
 
   const nextPage = () => {
+    if (loading) return
+
     setBatchConfig(prev => ({
       ...prev,
       page: prev.page + 1

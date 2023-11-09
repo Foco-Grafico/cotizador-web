@@ -1,13 +1,11 @@
-import { Filters } from '@/ui/filter/filter.component'
+import { ScreenLogin } from '@/ui/screenlogin/screenlogin.component'
 
 export default function Home () {
   return (
     <>
       <main className='h-screen w-full'>
-        <header>
-          a
-        </header>
-        <Filters />
+        <ScreenLogin />
+        <header />
       </main>
     </>
   )

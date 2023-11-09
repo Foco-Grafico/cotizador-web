@@ -1,0 +1,12 @@
+.modal {
+    animation: showModal 0.1s ease-in-out forwards;
+}
+
+@keyframes showModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

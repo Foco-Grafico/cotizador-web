@@ -16,7 +16,7 @@ export const ListElement = ({ item }: Props) => {
   const path = usePathname()
 
   return (
-    <Link href={item.path} className={`${styles.lielement} ${path === item.path ? styles.selected : ''}`}>
+    <Link href={`${item.path}?page=1`} className={`${styles.lielement} ${path === item.path ? styles.selected : ''}`}>
       <div className={styles.liImgContainer}>
         <img src={item.icon} alt={item.name} width={25} height={25} />
       </div>

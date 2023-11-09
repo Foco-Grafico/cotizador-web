@@ -37,7 +37,7 @@ export default function BatchInfo ({ status, m2, currency, location, price, inde
         <div className='absolute top-0 left-0 bg-[#cda052] rounded-tl-lg px-5 border-[#cda052] text-white'>
           {index}
         </div>
-        <img onClick={imgClick?.(image)} src={image} alt={location} width={650} height={250} className='cursor-pointer overflow-hidden flex items-center justify-center  pl-2' />
+        <img onClick={imgClick?.(image)} src={image} alt={location} width={650} height={250} className='cursor-pointer overflow-hidden flex items-center justify-center px-2 py-2' />
         <div className='border-r-[#cea550] border h-3/4 ' />
       </section>
       <section className='flex flex-col gap-10 items-center justify-center w-full py-4 px-10'>

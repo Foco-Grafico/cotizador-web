@@ -1,0 +1,29 @@
+.modal {
+    animation: showModal 0.1s ease-in-out forwards;
+}
+
+.batchList::-webkit-scrollbar {
+    width: 5px;
+}
+
+.batchList::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.batchList::-webkit-scrollbar-thumb {
+      background: #cca349a1;
+      border-radius: 0.50rem;
+}
+
+.batchList::-webkit-scrollbar-thumb:hover {
+    background: #cca249;
+}
+
+@keyframes showModal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

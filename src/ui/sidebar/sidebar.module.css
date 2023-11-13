@@ -2,6 +2,8 @@
     width: 4rem;
     border-right: 1px solid #cca249;
     transition: width 0.4s ease-in-out;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .sectitle {
@@ -20,8 +22,26 @@
 .list {
     list-style: none;
     padding: 0 0.7rem;
+    height: 100%;
 
     transition: padding 0.4s ease-in-out;
+}
+
+.list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.list::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+.list::-webkit-scrollbar-thumb {
+      background: #cca349a1;
+      border-radius: 0.50rem;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+    background: #cca249;
 }
 
 .lielement {
@@ -59,11 +79,20 @@
     transition: opacity 0.2s ease-in-out;
 }
 
+.section {
+    height: 90%;
+    overflow: hidden;
+}
+
 .sidebar:hover {
     width: 24rem;
 
     .sectitle {
         height: 2.6rem;
+    }
+
+    .section {
+        height: 77%;
     }
 
     .litext {
@@ -72,6 +101,8 @@
 
     .list {
         padding: 0 1rem;
+        padding-bottom: 3rem;
+        overflow-y: auto;
     }
 
     .liImgContainer {

@@ -30,12 +30,12 @@ export const RegisterScreen = () => {
         )}
         <label className='flex gap-2'>
           <input type='checkbox' onClick={clickCheckbox} />
-          <p>Quieres crear una cuenta para obtener los <span className='text-[#cbaf73]'>beneficios</span></p>
+          <p>Quieres crear una cuenta para obtener los <b><span className='text-[#cbaf73]'>beneficios.</span></b></p>
         </label>
         <button className='bg-[#015b53] text-[#fdfdfdfd] rounded px-2 py-0.5'>
           Descargar Cotización
         </button>
-        <p>Al descargar las cotizaciones aceptas las <span className='text-[#045b53]'>politicas de privacidad</span></p>
+        <p>Al descargar la cotización aceptas las <b><a className='text-[#045b53]'>politicas de privacidad.</a></b></p>
       </form>
     </section>
   )

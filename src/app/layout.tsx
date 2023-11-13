@@ -16,7 +16,7 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='es'>
-      <body className={`${montserrat.className} flex`}>
+      <body className={`${montserrat.className} h-screen flex`}>
         <SideBar />
         {children}
       </body>

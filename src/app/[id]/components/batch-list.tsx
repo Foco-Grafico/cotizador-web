@@ -7,6 +7,7 @@ import styles from './batch-list.module.css'
 import useZoom from '@/hooks/use-zoom'
 import { Filters } from '@/ui/filter/filter.component'
 import { MainHeader } from '@/ui/mainHeader/mainHeader.component'
+import { useSearchParams } from 'next/navigation'
 
 interface Props {
   devID: number | string
@@ -17,6 +18,7 @@ export const BatchList = ({ devID }: Props) => {
   const [url, setUrl] = useState('')
   const [toggle, setToggle] = useState(false)
   const { setZoom, zoomEl, zoomSupport, zoom } = useZoom()
+  const devName = useSearchParams().get('name') ?? ''
 
   const showModal = (url: string) => () => {
     setUrl(url)
@@ -43,7 +45,7 @@ export const BatchList = ({ devID }: Props) => {
   return (
     <>
       <section className='w-[60rem] h-full flex flex-col'>
-        <MainHeader desarrollo='Desarrollo' />
+        <MainHeader desarrollo={devName} />
         <Filters />
         <div className={`overflow-y-auto flex-1 w-full flex flex-col gap-3 px-1 ${styles.batchList}`}>
           {loading && <span className='w-full flex justify-center items-center'>Loading...</span>}

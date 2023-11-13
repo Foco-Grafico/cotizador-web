@@ -4,7 +4,7 @@ interface Props {
   desarrollo: string
 }
 
-export const Header = ({ desarrollo }: Props) => {
+export const MainHeader = ({ desarrollo }: Props) => {
   return (
     <section className='py-2 gap-4 w-full flex-row flex px-10'>
       <div className=' w-full flex items-center gap-5 pt-3'>

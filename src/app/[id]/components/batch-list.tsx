@@ -6,6 +6,7 @@ import { useState } from 'react'
 import styles from './batch-list.module.css'
 import useZoom from '@/hooks/use-zoom'
 import { Filters } from '@/ui/filter/filter.component'
+import { MainHeader } from '@/ui/mainHeader/mainHeader.component'
 
 interface Props {
   devID: number | string
@@ -42,6 +43,7 @@ export const BatchList = ({ devID }: Props) => {
   return (
     <>
       <section className='w-[60rem] h-full flex flex-col'>
+        <MainHeader desarrollo='Desarrollo' />
         <Filters />
         <div className={`overflow-y-auto flex-1 w-full flex flex-col gap-3 px-1 ${styles.batchList}`}>
           {loading && <span className='w-full flex justify-center items-center'>Loading...</span>}

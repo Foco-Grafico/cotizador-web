@@ -3,7 +3,7 @@ import styles from '@/ui/screenlogin/screenlogin.module.css'
 
 export const ScreenLogin = () => {
   return (
-    <section className='absolute h-screen w-screen grid place-content-center'>
+    <section className='absolute overflow-x-hidden h-screen w-full grid place-content-center'>
       <form className={styles.content}>
         <header>
           <img className={styles.images} src='/logos/deluxe.png' width={2663} height={791} alt='logo de deluxe contructora' />
@@ -14,7 +14,7 @@ export const ScreenLogin = () => {
           Iniciar Sesion
         </button>
       </form>
-      <p className={styles.textcreate}>¿No tienes cuenta? <a className='text-[#025c53]'>'¡Crea una ahora!</a></p>
+      <b><p className={styles.textcreate}>¿No tienes cuenta? <a className='text-[#025c53]'>'¡Crea una ahora!</a></p></b>
       <a className={styles.textpassword}>Olivide la contraseña</a>
     </section>
   )

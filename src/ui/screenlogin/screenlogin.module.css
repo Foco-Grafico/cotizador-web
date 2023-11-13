@@ -35,6 +35,6 @@
 .textpassword{
     display: flex;
     justify-content: center;
-    font-size: 0.70rem;
+    font-size: 0.70rem; 
     color: #d5bca0;
 }

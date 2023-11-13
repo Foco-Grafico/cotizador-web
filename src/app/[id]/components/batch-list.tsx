@@ -5,6 +5,7 @@ import BatchInfo from '@/ui/batch/batch.component'
 import { useState } from 'react'
 import styles from './batch-list.module.css'
 import useZoom from '@/hooks/use-zoom'
+import { Filters } from '@/ui/filter/filter.component'
 
 interface Props {
   devID: number | string
@@ -41,6 +42,7 @@ export const BatchList = ({ devID }: Props) => {
   return (
     <>
       <section className='w-[60rem] h-full flex flex-col'>
+        <Filters />
         <div className={`overflow-y-auto flex-1 w-full flex flex-col gap-3 px-1 ${styles.batchList}`}>
           {loading && <span className='w-full flex justify-center items-center'>Loading...</span>}
           {error != null && <span className='w-full flex justify-center items-center'>{error.message}</span>}
@@ -57,7 +59,7 @@ export const BatchList = ({ devID }: Props) => {
       {toggle && (
         <section onClick={closeModal} className={`absolute inset-0 w-screen h-screen bg-[#0000003a] grid place-content-center backdrop-blur-md ${styles.modal} overflow-hidden`}>
           <span className='absolute right-20 top-10 text-xl cursor-pointer'>X</span>
-          <article ref={zoomSupport} className='bg-white p-7 rounded-lg cursor-pointer'>
+          <article ref={zoomSupport} className='p-7 rounded-lg cursor-pointer'>
             <img
               ref={zoomEl}
               onClick={toggleZoom}

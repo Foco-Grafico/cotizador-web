@@ -22,6 +22,12 @@ const config: Config = {
       },
       animation: {
         'slide-up': 'slide-up 0.4s ease-out'
+      },
+      colors: {
+        deluxe: {
+          'yellow-primary': '#a06a36',
+          'yellow-secondary': '#cca249'
+        }
       }
     }
   },

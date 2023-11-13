@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { SideBar } from '@/ui/sidebar/sidebar.component'
-import { montserrat } from '@/assets/fonts'
+import { futura } from '@/assets/fonts'
 
 export const metadata: Metadata = {
   title: 'Cotizador Instantaneo',
@@ -16,7 +16,7 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='es'>
-      <body className={`${montserrat.className} h-screen flex`}>
+      <body className={`${futura.className} h-screen flex`}>
         <SideBar />
         {children}
       </body>

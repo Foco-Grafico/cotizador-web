@@ -21,7 +21,7 @@ export const SideBar = async () => {
         <div className='h-1 border-t border-t-[#cca249]' />
       </section>
       <section className={styles.section}>
-        <h1 className={`${styles.sectitle} text-[#a06a36] text-2xl font-semibold ml-5`}>
+        <h1 className={`${styles.sectitle} text-deluxe-yellow-primary text-2xl font-semibold ml-5`}>
           Desarrollos
         </h1>
         {res.ok && (

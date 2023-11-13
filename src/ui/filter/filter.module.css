@@ -1,0 +1,70 @@
+.filterbutton {
+    background-color: #e5e5e569 ;
+    color: #c1a95e;
+    border-radius: 0.33rem;
+    width: auto;
+    padding-left: 0.05rem;
+    padding-right: 10rem;
+    margin-bottom: 5px;;
+}
+
+.arrow {
+    transform: rotate(270deg);
+    transition: transform 0.3s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(90deg);
+}
+
+.Estado {
+    border: 1px solid #e6e6e6;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 0.33rem;
+
+}
+.Precio {
+    border: 1px solid #e6e6e6;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 0.33rem;
+}
+.Ubicacion{
+    border: 1px solid #e6e6e6;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 0.33rem;
+}
+.M2 {
+    border: 1px solid #e6e6e6;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 0.33rem;
+}
+
+.borderoptions {
+    animation: borderOptionFadeIn 0.1s ease-in-out forwards;
+}
+
+@keyframes borderOptionFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        border: 3px solid #c1a95e;
+        border-radius: 0.60rem;
+        padding: 1;
+        margin-bottom: 0.5rem;
+        border-color: #faeed9;
+        width: 100%;
+        gap: 1rem;
+        padding-top: 0.33rem;
+        padding-bottom: 0.33rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        flex-wrap: wrap;
+        display: flex;
+        width: 100%;
+    }
+}

@@ -2,7 +2,7 @@ import styles from '@/ui/sidebar/sidebar.module.css'
 import { ListElement } from '@/ui/sidebar/components/list-element.component'
 import { LogoDeluxe } from '@/assets/svgs/logos'
 import { IconDeluxe } from '@/assets/svgs/icons'
-import { API_URL, DEVS_ENDPOINTS } from '@/utils/fetch-data'
+import { DEVS_ENDPOINTS } from '@/utils/fetch-data'
 import { Dev } from '@/types'
 
 export const SideBar = async () => {
@@ -10,8 +10,6 @@ export const SideBar = async () => {
     cache: 'no-cache'
   })
   const data = res.ok ? (await res.json()).data as Dev[] : []
-
-  console.log(data)
 
   return (
     <aside className={styles.sidebar}>
@@ -22,8 +20,8 @@ export const SideBar = async () => {
       <section className='w-full px-12 mb-3'>
         <div className='h-1 border-t border-t-[#cca249]' />
       </section>
-      <section>
-        <h1 className={`${styles.sectitle} text-[#a06a36] text-2xl font-semibold ml-5`}>
+      <section className={styles.section}>
+        <h1 className={`${styles.sectitle} text-deluxe-yellow-primary text-2xl font-semibold ml-5`}>
           Desarrollos
         </h1>
         {res.ok && (
@@ -32,7 +30,7 @@ export const SideBar = async () => {
               <ListElement
                 key={item.key}
                 item={{
-                  icon: `${API_URL}/${item.logo_url}`,
+                  icon: item.logo_url,
                   name: item.name,
                   path: `/${item.id}`
                 }}

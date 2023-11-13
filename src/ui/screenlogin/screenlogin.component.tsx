@@ -14,7 +14,7 @@ export const ScreenLogin = () => {
           Iniciar Sesion
         </button>
       </form>
-      <p className={styles.textcreate}>¿No tienes cuenta?<button className='text-[#025c53]'>crea una cuenta</button></p>
+      <p className={styles.textcreate}>¿No tienes cuenta? <a className='text-[#025c53]'>'¡Crea una ahora!</a></p>
       <a className={styles.textpassword}>Olivide la contraseña</a>
     </section>
   )

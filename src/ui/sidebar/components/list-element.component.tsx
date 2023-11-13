@@ -19,7 +19,7 @@ export const ListElement = ({ item }: Props) => {
   const url = item.icon.startsWith('http') ? item.icon : `${API_URL}/${item.icon}`
 
   return (
-    <Link href={`${item.path}?page=1`} className={`${styles.lielement} ${isPath ? styles.selected : ''} hover:bg-[#cca34930]`}>
+    <Link href={`${item.path}?page=1&name=${item.name}`} className={`${styles.lielement} ${isPath ? styles.selected : ''} hover:bg-[#cca34930]`}>
       <div className={styles.liImgContainer}>
         <img src={url} alt={item.name} width={25} height={25} />
       </div>

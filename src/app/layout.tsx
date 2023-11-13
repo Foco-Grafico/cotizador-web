@@ -16,7 +16,7 @@ export default function RootLayout ({
 }) {
   return (
     <html lang='es'>
-      <body className={`${futura.className} h-screen flex`}>
+      <body className={`${futura.className} h-screen flex overflow-hidden`}>
         <SideBar />
         {children}
       </body>

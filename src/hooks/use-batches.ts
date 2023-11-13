@@ -13,7 +13,7 @@ export default function useBatches ({ devID }: Props) {
   const [error, setError] = useState<Error>()
   const router = useRouter()
   const [max, setMax] = useState(1)
-  const [elements, setElements] = useState(50)
+  const [elements, setElements] = useState(30)
   const abortController = useRef(new AbortController())
 
   const params = useSearchParams()

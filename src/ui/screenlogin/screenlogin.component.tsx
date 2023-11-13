@@ -11,11 +11,11 @@ export const ScreenLogin = () => {
         <input type='text' placeholder='Usuario ' className={styles.borders} />
         <input type='password' placeholder='Contraseña' className={styles.borders} />
         <button className={styles.buttonsesion}>
-          Iniciar Sesion
+          Iniciar Sesión
         </button>
       </form>
-      <b><p className={styles.textcreate}>¿No tienes cuenta? <a className='text-[#025c53]'>'¡Crea una ahora!</a></p></b>
-      <a className={styles.textpassword}>Olivide la contraseña</a>
+      <b><p className={styles.textcreate}>¿No tienes cuenta? <a className='text-[#025c53]'>¡Crea una ahora!</a></p></b>
+      <a className={styles.textpassword}>Olividé la contraseña</a>
     </section>
   )
 }

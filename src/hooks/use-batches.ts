@@ -38,7 +38,7 @@ export default function useBatches ({ devID }: Props) {
 
     const page = Number(params.get('page')) - 1 === 0 ? 1 : Number(params.get('page')) - 1
 
-    router.push(`/${devID}?page=${page}`)
+    router.push(`/${devID}?page=${page}&name=${params.get('name') ?? ''}`)
   }, [devID, params, router])
 
   const nextPage = () => {
@@ -48,7 +48,7 @@ export default function useBatches ({ devID }: Props) {
 
     const page = Number(params.get('page')) + 1
 
-    router.push(`/${devID}?page=${page}`)
+    router.push(`/${devID}?page=${page}&name=${params.get('name') ?? ''}`)
   }
 
   useEffect(() => {

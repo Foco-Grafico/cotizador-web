@@ -36,8 +36,26 @@ export interface Status {
   name: string
 }
 
+export interface StatusWithKey extends Status {
+  key: string
+}
+
 export interface BatchAsset {
   id: number
   batch_id: number
   asset_url: string
+}
+
+export interface Filters {
+  area?: number | string
+  perimeter?: number | string
+  longitude?: number | string
+  coords?: string
+  amenties?: string
+  price?: number | string
+  currency?: string
+  location?: string
+  sqm?: number | string
+  sides?: number | string
+  status?: number | string
 }

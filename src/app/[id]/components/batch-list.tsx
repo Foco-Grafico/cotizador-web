@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const BatchList = ({ devID }: Props) => {
-  const { batches, error, loading, nextPage, prevPage, page, setFilters, statuses } = useBatches({ devID })
+  const { batches, error, loading, nextPage, prevPage, page, setFilters } = useBatches({ devID })
   const [url, setUrl] = useState('')
   const [toggle, setToggle] = useState(false)
   const { setZoom, zoomEl, zoomSupport, zoom } = useZoom()
@@ -23,9 +23,13 @@ export const BatchList = ({ devID }: Props) => {
   const showModal = (url: string) => () => {
     setUrl(url)
     setToggle(true)
+
+    window.addEventListener('keydown', closeModal)
   }
 
-  const closeModal = () => {
+  const closeModal = (e?: KeyboardEvent) => {
+    if (e?.key != null && e.key !== 'Escape') return
+
     if (zoom.toggle) {
       toggleZoom()
       return
@@ -46,7 +50,7 @@ export const BatchList = ({ devID }: Props) => {
     <>
       <section className='w-[60rem] h-full flex flex-col'>
         <MainHeader desarrollo={devName} />
-        <Filters setFilters={setFilters} statuses={statuses} />
+        <Filters setFilters={setFilters} />
         <div className={`overflow-y-auto flex-1 w-full flex flex-col gap-3 px-1 ${styles.batchList}`}>
           {loading && <span className='w-full flex justify-center items-center'>Loading...</span>}
           {error != null && <span className='w-full flex justify-center items-center'>{error.message}</span>}

@@ -1,15 +1,14 @@
 'use client'
 import { IconArrowSquare } from '@/assets/svgs/icons'
-import type { Filters as FilterType, StatusWithKey } from '@/types'
+import type { Filters as FilterType } from '@/types'
 import styles from '@/ui/filter/filter.module.css'
 import { useRef, useState } from 'react'
 
 interface Props {
-  statuses: StatusWithKey[]
   setFilters: React.Dispatch<React.SetStateAction<FilterType>>
 }
 
-export const Filters = ({ setFilters, statuses }: Props) => {
+export const Filters = ({ setFilters }: Props) => {
   const [isActive, setIsActive] = useState(false)
   const arrow = useRef<HTMLElement>()
 
@@ -30,8 +29,6 @@ export const Filters = ({ setFilters, statuses }: Props) => {
   const handleChangeFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target
 
-    console.log(name, value)
-
     setFilters(prev => ({ ...prev, [name]: value === 'none' ? null : value }))
   }
 
@@ -43,12 +40,6 @@ export const Filters = ({ setFilters, statuses }: Props) => {
       <div className='h-[0.05rem] w-full bg-[#7f7f7f8a] m-[0.50rem]' />
       {isActive && (
         <form className={styles.borderoptions}>
-          <select onChange={handleChangeFilter} name='status' className={`${styles.Estado} outline-none`}>
-            <option value='none'>Estado</option>
-            {statuses.map(status => (
-              <option key={status.key} value={status.id}>{status.name}</option>
-            ))}
-          </select>
           <select className={styles.Precio}>
             <option value='Precio'>Precio</option>
           </select>

@@ -57,5 +57,4 @@ export interface Filters {
   location?: string
   sqm?: number | string
   sides?: number | string
-  status?: number | string
 }

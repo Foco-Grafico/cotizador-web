@@ -1,4 +1,4 @@
-import type { Batch, Filters, StatusWithKey } from '@/types'
+import type { Batch, Filters } from '@/types'
 import { BATCH_ENDPOINTS } from '@/utils/fetch-data'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect, useState, useRef } from 'react'
@@ -25,10 +25,8 @@ export default function useBatches ({ devID }: Props) {
     perimeter: undefined,
     price: undefined,
     sides: undefined,
-    sqm: undefined,
-    status: undefined
+    sqm: undefined
   })
-  const [statuses, setStatuses] = useState<StatusWithKey[]>([])
 
   const params = useSearchParams()
 
@@ -79,8 +77,7 @@ export default function useBatches ({ devID }: Props) {
         perimeter: filters.perimeter,
         price: filters.price,
         sides: filters.sides,
-        sq_m: filters.sqm,
-        status: filters.status
+        sq_m: filters.sqm
       })
     }
 
@@ -115,24 +112,5 @@ export default function useBatches ({ devID }: Props) {
       })
   }, [devID, elements, params, prevPage, filters])
 
-  useEffect(() => {
-    const fetchStatuses = async () => await fetch(BATCH_ENDPOINTS.statuses)
-
-    fetchStatuses()
-      .then(async res => {
-        if (res.ok) {
-          return await res.json()
-        }
-
-        throw new Error('Ha ocurrido un error al cargar los estados')
-      })
-      .then(data => {
-        setStatuses(data.data)
-      })
-      .catch(err => {
-        console.error(err)
-      })
-  }, [])
-
-  return { batches, loading, error, prevPage, nextPage, setElements, page: Number(params.get('page')), setFilters, statuses }
+  return { batches, loading, error, prevPage, nextPage, setElements, page: Number(params.get('page')), setFilters }
 }

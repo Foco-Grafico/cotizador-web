@@ -1,6 +1,6 @@
 'use client'
 import { IconArrowSquare } from '@/assets/svgs/icons'
-import type { Filters as FilterType, Filters, StatusWithKey } from '@/types'
+import type { Filters as FilterType, StatusWithKey } from '@/types'
 import styles from '@/ui/filter/filter.module.css'
 import { useRef, useState } from 'react'
 

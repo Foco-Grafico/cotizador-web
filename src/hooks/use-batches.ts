@@ -1,4 +1,4 @@
-import { Batch } from '@/types'
+import type { Batch, Filters } from '@/types'
 import { BATCH_ENDPOINTS } from '@/utils/fetch-data'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect, useState, useRef } from 'react'
@@ -15,6 +15,18 @@ export default function useBatches ({ devID }: Props) {
   const [max, setMax] = useState(1)
   const [elements, setElements] = useState(30)
   const abortController = useRef(new AbortController())
+  const [filters, setFilters] = useState<Filters>({
+    amenties: undefined,
+    area: undefined,
+    coords: undefined,
+    currency: undefined,
+    location: undefined,
+    longitude: undefined,
+    perimeter: undefined,
+    price: undefined,
+    sides: undefined,
+    sqm: undefined
+  })
 
   const params = useSearchParams()
 
@@ -24,7 +36,7 @@ export default function useBatches ({ devID }: Props) {
 
     const page = Number(params.get('page')) - 1 === 0 ? 1 : Number(params.get('page')) - 1
 
-    router.push(`/${devID}?page=${page}`)
+    router.push(`/${devID}?page=${page}&name=${params.get('name') ?? ''}`)
   }, [devID, params, router])
 
   const nextPage = () => {
@@ -34,7 +46,7 @@ export default function useBatches ({ devID }: Props) {
 
     const page = Number(params.get('page')) + 1
 
-    router.push(`/${devID}?page=${page}`)
+    router.push(`/${devID}?page=${page}&name=${params.get('name') ?? ''}`)
   }
 
   useEffect(() => {
@@ -47,9 +59,29 @@ export default function useBatches ({ devID }: Props) {
       // Do nothing
     }
 
-    const fetchBatches = async () => await fetch(BATCH_ENDPOINTS.inDev({ devID, elements, page: Number(params.get('page')) }), {
-      signal: abortController.current.signal
-    })
+    const headers = new Headers()
+    headers.append('Content-Type', 'application/json')
+    headers.append('Accept', 'application/json')
+
+    const options = {
+      method: 'POST',
+      headers,
+      signal: abortController.current.signal,
+      body: JSON.stringify({
+        amenties: filters.amenties,
+        area: filters.area,
+        coords: filters.coords,
+        currency: filters.currency,
+        location: filters.location,
+        longitude: filters.longitude,
+        perimeter: filters.perimeter,
+        price: filters.price,
+        sides: filters.sides,
+        sq_m: filters.sqm
+      })
+    }
+
+    const fetchBatches = async () => await fetch(BATCH_ENDPOINTS.inDev({ devID, elements, page: Number(params.get('page')) }), options)
 
     fetchBatches()
       .then(async res => {
@@ -78,7 +110,7 @@ export default function useBatches ({ devID }: Props) {
         setLoading(false)
         setError(new Error('Ha ocurrido un error al cargar los lotes'))
       })
-  }, [devID, elements, params, prevPage])
+  }, [devID, elements, params, prevPage, filters])
 
-  return { batches, loading, error, prevPage, nextPage, setElements, page: Number(params.get('page')) }
+  return { batches, loading, error, prevPage, nextPage, setElements, page: Number(params.get('page')), setFilters }
 }

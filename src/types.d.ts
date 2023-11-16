@@ -10,6 +10,7 @@ export interface Dev {
   contact_number: string
   contact_email: string
   status: number
+  view_url: string | null
   key: string
 }
 

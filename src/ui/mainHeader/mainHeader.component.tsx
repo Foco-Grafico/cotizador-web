@@ -1,15 +1,17 @@
 import { IconArrowSquare } from '@/assets/svgs/icons'
+import { DevViewButton } from './components/DevViewButton'
 
 interface Props {
   desarrollo: string
+  hasView: boolean
 }
 
-export const MainHeader = ({ desarrollo }: Props) => {
+export const MainHeader = ({ desarrollo, hasView }: Props) => {
   return (
     <section className='gap-4 w-full flex-row flex py-3'>
       <div className=' w-full flex items-center gap-5'>
         <span className='bg-[#cda147] text-white text-xl px-2 rounded-lg'>{desarrollo}</span>
-        <button className='text-white text-xl rounded-md bg-[#035a54] px-2'>Ver recorrido 360°</button>
+        {hasView && <DevViewButton />}
       </div>
       <div className=' w-1/5 flex justify-end flex-col items-end '>
         <button className=''>

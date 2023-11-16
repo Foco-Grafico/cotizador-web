@@ -11,9 +11,10 @@ import { useSearchParams } from 'next/navigation'
 
 interface Props {
   devID: number | string
+  hasView: boolean
 }
 
-export const BatchList = ({ devID }: Props) => {
+export const BatchList = ({ devID, hasView }: Props) => {
   const { batches, error, loading, nextPage, prevPage, page, setFilters } = useBatches({ devID })
   const [url, setUrl] = useState('')
   const [toggle, setToggle] = useState(false)
@@ -49,7 +50,7 @@ export const BatchList = ({ devID }: Props) => {
   return (
     <>
       <section className='w-[60rem] h-full flex flex-col'>
-        <MainHeader desarrollo={devName} />
+        <MainHeader hasView={hasView} desarrollo={devName} />
         <Filters setFilters={setFilters} />
         <div className={`overflow-y-auto flex-1 w-full flex flex-col gap-3 px-1 ${styles.batchList}`}>
           {loading && <span className='w-full flex justify-center items-center'>Loading...</span>}
@@ -67,7 +68,7 @@ export const BatchList = ({ devID }: Props) => {
       {toggle && (
         <section onClick={closeModal} className={`absolute inset-0 w-screen h-screen bg-[#0000003a] grid place-content-center backdrop-blur-md ${styles.modal} overflow-hidden`}>
           <span className='absolute right-20 top-10 text-xl cursor-pointer'>X</span>
-          <article ref={zoomSupport} className='p-7 rounded-lg cursor-pointer'>
+          <picture ref={zoomSupport} className='p-7 rounded-lg cursor-pointer'>
             <img
               ref={zoomEl}
               onClick={toggleZoom}
@@ -76,7 +77,7 @@ export const BatchList = ({ devID }: Props) => {
               width={850}
               height={550}
             />
-          </article>
+          </picture>
         </section>
       )}
     </>

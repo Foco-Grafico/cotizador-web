@@ -1,7 +1,8 @@
-export const API_URL = 'http://soportefoco.com:3001'
+export const API_URL = 'http://192.168.0.10:3001'
 
 export const DEVS_ENDPOINTS = {
-  all: `${API_URL}/development`
+  all: `${API_URL}/development`,
+  one: (id: number | string) => `${API_URL}/development/${id}`
 }
 
 interface BATCH_ENDPOINTS_TYPES {

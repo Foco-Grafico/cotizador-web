@@ -70,6 +70,7 @@ export const BatchList = ({ devID, hasView }: Props) => {
           <span className='absolute right-20 top-10 text-xl cursor-pointer'>X</span>
           <picture ref={zoomSupport} className='p-7 rounded-lg cursor-pointer'>
             <img
+              className={zoom.toggle ? 'cursor-zoom-out' : 'cursor-zoom-in'}
               ref={zoomEl}
               onClick={toggleZoom}
               src={url}

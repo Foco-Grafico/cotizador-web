@@ -1,3 +1,4 @@
+
 export interface Dev {
   id: number
   name: string
@@ -12,6 +13,7 @@ export interface Dev {
   status: number
   view_url: string | null
   key: string
+  max_blocks: number
 }
 
 export interface Batch {
@@ -30,6 +32,8 @@ export interface Batch {
   'key': string
   'assets': BatchAsset[]
   'payment_plans': []
+  'block': number
+  number_of_batch: number
 }
 
 export interface Status {
@@ -58,4 +62,6 @@ export interface Filters {
   location?: string
   sqm?: number | string
   sides?: number | string
+  block?: string | number
+  type?: string | number
 }

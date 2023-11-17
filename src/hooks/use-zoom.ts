@@ -6,8 +6,8 @@ export default function useZoom () {
     x: 0,
     y: 0
   })
-  const zoomEl = useRef<HTMLElement>()
-  const zoomSupport = useRef<HTMLElement>()
+  const zoomEl = useRef<HTMLImageElement>(null)
+  const zoomSupport = useRef<HTMLPictureElement>(null)
 
   useEffect(() => {
     zoomEl.current?.style.setProperty('transition', 'transform 0.1s ease-out')

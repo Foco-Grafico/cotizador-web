@@ -1,4 +1,4 @@
-import type { Batch, Filters } from '@/types'
+import type { Batch, Filters, StatusWithKey } from '@/types'
 import { BATCH_ENDPOINTS } from '@/utils/fetch-data'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect, useState, useRef } from 'react'
@@ -25,8 +25,28 @@ export default function useBatches ({ devID }: Props) {
     perimeter: undefined,
     price: undefined,
     sides: undefined,
-    sqm: undefined
+    sqm: undefined,
+    block: undefined,
+    type: undefined
   })
+
+  const [batchTypes, setBatchTypes] = useState<StatusWithKey[]>([])
+
+  useEffect(() => {
+    fetch(BATCH_ENDPOINTS.types, {
+      cache: 'no-cache'
+    })
+      .then(async (res) => {
+        if (res.ok) {
+          return await res.json()
+        }
+        throw new Error('Ha ocurrido un error al cargar los tipos de lote')
+      })
+      .then(data => {
+        setBatchTypes(data.data)
+      })
+      .catch(err => console.log(err))
+  }, [])
 
   const params = useSearchParams()
 
@@ -77,7 +97,9 @@ export default function useBatches ({ devID }: Props) {
         perimeter: filters.perimeter,
         price: filters.price,
         sides: filters.sides,
-        sq_m: filters.sqm
+        sq_m: filters.sqm,
+        block: filters.block,
+        type: filters.type
       })
     }
 
@@ -112,5 +134,5 @@ export default function useBatches ({ devID }: Props) {
       })
   }, [devID, elements, params, prevPage, filters])
 
-  return { batches, loading, error, prevPage, nextPage, setElements, page: Number(params.get('page')), setFilters }
+  return { batches, loading, error, prevPage, nextPage, setElements, page: Number(params.get('page')), setFilters, batchTypes }
 }

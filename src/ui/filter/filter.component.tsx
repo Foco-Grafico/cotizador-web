@@ -1,16 +1,22 @@
 'use client'
 import { IconArrowSquare } from '@/assets/svgs/icons'
-import type { Filters as FilterType } from '@/types'
+import type { Filters as FilterType, StatusWithKey } from '@/types'
 import styles from '@/ui/filter/filter.module.css'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useRef, useState } from 'react'
 
 interface Props {
   setFilters: React.Dispatch<React.SetStateAction<FilterType>>
+  maxBlocks: number
+  batchTypes: StatusWithKey[]
 }
 
-export const Filters = ({ setFilters }: Props) => {
+export const Filters = ({ setFilters, maxBlocks = 1, batchTypes }: Props) => {
   const [isActive, setIsActive] = useState(false)
-  const arrow = useRef<HTMLElement>()
+  const arrow = useRef<HTMLSpanElement>(null)
+  const pathname = usePathname()
+  const params = useSearchParams()
+  const router = useRouter()
 
   const handleToggle = () => {
     setIsActive(prev => {
@@ -29,6 +35,12 @@ export const Filters = ({ setFilters }: Props) => {
   const handleChangeFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target
 
+    const searchParams = new URLSearchParams(params.toString())
+
+    searchParams.set('page', '1')
+
+    router.push(`${pathname}?${searchParams.toString()}`)
+
     setFilters(prev => ({ ...prev, [name]: value === 'none' ? null : value }))
   }
 
@@ -40,14 +52,17 @@ export const Filters = ({ setFilters }: Props) => {
       <div className='h-[0.05rem] w-full bg-[#7f7f7f8a] m-[0.50rem]' />
       {isActive && (
         <form className={styles.borderoptions}>
-          <select className={styles.Precio}>
-            <option value='Precio'>Precio</option>
+          <select onChange={handleChangeFilter} name='block'>
+            <option value='none'>Ubicación</option>
+            {Array.from({ length: maxBlocks }, (_, i) => <option key={i} value={i + 1}>M-{i + 1}</option>)}
           </select>
-          <select className={styles.Ubicacion}>
-            <option value='Ubicacion'>Ubicación</option>
-          </select>
-          <select className={styles.M2}>
-            <option value='M2'>M2</option>
+          <select name='type' onChange={handleChangeFilter}>
+            <option value='none'>
+              Tipo
+            </option>
+            {batchTypes.map(({ id, key, name }) => (
+              <option key={key} value={id}>{name}</option>
+            ))}
           </select>
         </form>
       )}

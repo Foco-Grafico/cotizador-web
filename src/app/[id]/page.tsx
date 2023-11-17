@@ -15,7 +15,7 @@ export default async function BatchPage ({ params }: { params: { id: string } })
     <>
       <main className='w-full flex flex-col items-center'>
         {data.view_url != null && <DevView dev={data} />}
-        <BatchList devID={params.id} hasView={data.view_url != null} />
+        <BatchList maxBlocks={data.max_blocks} devID={params.id} hasView={data.view_url != null} />
       </main>
     </>
   )

@@ -12,10 +12,11 @@ import { useSearchParams } from 'next/navigation'
 interface Props {
   devID: number | string
   hasView: boolean
+  maxBlocks: number
 }
 
-export const BatchList = ({ devID, hasView }: Props) => {
-  const { batches, error, loading, nextPage, prevPage, page, setFilters } = useBatches({ devID })
+export const BatchList = ({ devID, hasView, maxBlocks = 1 }: Props) => {
+  const { batches, error, loading, nextPage, prevPage, page, setFilters, batchTypes } = useBatches({ devID })
   const [url, setUrl] = useState('')
   const [toggle, setToggle] = useState(false)
   const { setZoom, zoomEl, zoomSupport, zoom } = useZoom()
@@ -51,12 +52,12 @@ export const BatchList = ({ devID, hasView }: Props) => {
     <>
       <section className='w-[60rem] h-full flex flex-col'>
         <MainHeader hasView={hasView} desarrollo={devName} />
-        <Filters setFilters={setFilters} />
+        <Filters batchTypes={batchTypes} maxBlocks={maxBlocks} setFilters={setFilters} />
         <div className={`overflow-y-auto flex-1 w-full flex flex-col gap-3 px-1 ${styles.batchList}`}>
           {loading && <span className='w-full flex justify-center items-center'>Loading...</span>}
           {error != null && <span className='w-full flex justify-center items-center'>{error.message}</span>}
           {!loading && batches.map((batch) => (
-            <BatchInfo imgClick={showModal} key={batch.id} index={batch.id} m2={batch.sq_m} currency={batch.currency} price={batch.price} status={batch.status.name} location={batch.location} image={batch.assets[0].asset_url} />
+            <BatchInfo numberBatch={batch.number_of_batch} block={batch.block} imgClick={showModal} key={batch.id} index={batch.id} m2={batch.sq_m} currency={batch.currency} price={batch.price} status={batch.status.name} location={batch.location} image={batch.assets[0].asset_url} />
           ))}
         </div>
         <div className='flex justify-center items-center gap-3'>
@@ -66,7 +67,7 @@ export const BatchList = ({ devID, hasView }: Props) => {
         </div>
       </section>
       {toggle && (
-        <section onClick={closeModal} className={`absolute inset-0 w-screen h-screen bg-[#0000003a] grid place-content-center backdrop-blur-md ${styles.modal} overflow-hidden`}>
+        <section onClick={() => { closeModal() }} className={`absolute inset-0 w-screen h-screen bg-[#0000003a] grid place-content-center backdrop-blur-md ${styles.modal} overflow-hidden`}>
           <span className='absolute right-20 top-10 text-xl cursor-pointer'>X</span>
           <picture ref={zoomSupport} className='p-7 rounded-lg cursor-pointer'>
             <img

@@ -4,6 +4,7 @@ import type { Filters as FilterType, StatusWithKey } from '@/types'
 import styles from '@/ui/filter/filter.module.css'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useRef, useState } from 'react'
+import { RangeSelector } from '../components/range'
 
 interface Props {
   setFilters: React.Dispatch<React.SetStateAction<FilterType>>
@@ -32,7 +33,15 @@ export const Filters = ({ setFilters, maxBlocks = 1, batchTypes }: Props) => {
     })
   }
 
-  const handleChangeFilter = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeFilter = (
+    operators?: string[],
+    rules?: {
+      specialOperator: {
+        value: string
+        operator: string
+      }
+    }
+  ) => (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target
 
     const searchParams = new URLSearchParams(params.toString())
@@ -41,7 +50,29 @@ export const Filters = ({ setFilters, maxBlocks = 1, batchTypes }: Props) => {
 
     router.push(`${pathname}?${searchParams.toString()}`)
 
-    setFilters(prev => ({ ...prev, [name]: value === 'none' ? null : value }))
+    const filter = (() => {
+      if (operators == null) return value === 'none' ? null : value
+
+      if (rules != null) {
+        const { specialOperator } = rules
+
+        if (specialOperator.value === value) {
+          return [{
+            operator: specialOperator.operator,
+            value
+          }]
+        }
+      }
+
+      const values = value.split(',')
+
+      return values.map((v, i) => ({
+        operator: operators[i],
+        value: v
+      }))
+    })()
+
+    setFilters(prev => ({ ...prev, [name]: filter }))
   }
 
   return (
@@ -52,11 +83,11 @@ export const Filters = ({ setFilters, maxBlocks = 1, batchTypes }: Props) => {
       <div className='h-[0.05rem] w-full bg-[#7f7f7f8a] m-[0.50rem]' />
       {isActive && (
         <form className={styles.borderoptions}>
-          <select onChange={handleChangeFilter} name='block'>
+          <select onChange={handleChangeFilter()} name='block'>
             <option value='none'>Ubicación</option>
             {Array.from({ length: maxBlocks }, (_, i) => <option key={i} value={i + 1}>M-{i + 1}</option>)}
           </select>
-          <select name='type' onChange={handleChangeFilter}>
+          <select name='type' onChange={handleChangeFilter()}>
             <option value='none'>
               Tipo
             </option>
@@ -64,6 +95,26 @@ export const Filters = ({ setFilters, maxBlocks = 1, batchTypes }: Props) => {
               <option key={key} value={id}>{name}</option>
             ))}
           </select>
+          <select
+            name='sqm'
+            className='outline-none '
+            onChange={handleChangeFilter(['>=', '<='], {
+              specialOperator: {
+                value: '400',
+                operator: '>'
+              }
+            })}
+          >
+            <option value='none'>
+              M2
+            </option>
+            <option value='0,100'>0 - 100</option>
+            <option value='101,200'>101 - 200</option>
+            <option value='201,300'>201 - 300</option>
+            <option value='301,400'>301 - 400</option>
+            <option value='400'>{'>'} 400</option>
+          </select>
+          <RangeSelector name='price' min={0} max={5000} />
         </form>
       )}
     </section>

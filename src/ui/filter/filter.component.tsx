@@ -75,6 +75,10 @@ export const Filters = ({ setFilters, maxBlocks = 1, batchTypes }: Props) => {
     setFilters(prev => ({ ...prev, [name]: filter }))
   }
 
+  const handleRangeChange = (value: { min: number, max: number }) => {
+    console.log(value)
+  }
+
   return (
     <section className=''>
       <button className='flex justify-center items-center bg-[#e5e5e569] hover:bg-[#e5e5e5b7] transition-colors px-3 gap-3 text-deluxe-yellow-secondary font-medium rounded-md' onClick={handleToggle}>
@@ -114,7 +118,7 @@ export const Filters = ({ setFilters, maxBlocks = 1, batchTypes }: Props) => {
             <option value='301,400'>301 - 400</option>
             <option value='400'>{'>'} 400</option>
           </select>
-          <RangeSelector name='price' min={0} max={5000} />
+          <RangeSelector onChange={handleRangeChange} min={0} max={5000} />
         </form>
       )}
     </section>
